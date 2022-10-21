@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_families",
+  "info": {
+    "singularName": "contact-family",
+    "pluralName": "contact-families",
+    "displayName": "ContactFamily",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "child",
+        "spouse",
+        "parent",
+        "grandparent",
+        "grandchild"
+      ]
+    },
+    "Photo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::contact.contact",
+      "mappedBy": "contact_families"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "StreetAddress": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "family",
+        "partner",
+        "spouse",
+        "child",
+        "parent",
+        "grandparent",
+        "grandchild"
+      ]
+    },
+    "City": {
+      "type": "string"
+    },
+    "State": {
+      "type": "string"
+    },
+    "Zipcode": {
+      "type": "string"
+    },
+    "personal_photos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::photo.photo"
+    },
+    "home_photos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::photo.photo"
+    },
+    "contact_families": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::contact-family.contact-family",
+      "inversedBy": "contacts"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Phone": {
+      "type": "string",
+      "minLength": 10
+    },
+    "UserId": {
+      "type": "integer"
+    }
+  }
+}
